@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resource :users, only: :show
+
+  get 'show' => 'users#show'
+  root to: 'users#show'
+
 end
