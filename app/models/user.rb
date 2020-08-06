@@ -4,21 +4,35 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest.new('SHA256')
 
+  attr_accessor :password
+
   before_save :encrypt_password
 
   has_many :questions
 
-  validates :name, :username, :email, presence: true
+  validates :name, :username, presence: true
   validates :email, :username, uniqueness: true
-
-  # Виртуальное поле, которое не сохраняется в базу. Из него перед сохранением читается пароль,
-  # и сохраняется в базу уже зашифрованная версия пароля в
-  attr_accessor :password
-
-  # валидация будет проходить только при создании нового юзера
+  validates :email, format: { with: /\A[\w\d\._-]+@{1}[\d\w\.]+\.[\w]+\z/ }
+  validates :username, format: { with: /\A([A-Za-z0-9_])+\z/ }
+  validates :username, length: { maximum: 40 }
   validates :password, :password_confirmation, presence: true, on: :create
-  # и поле подтверждения пароля
-  validates_confirmation_of :password
+  validates :password, confirmation: true
+
+  def self.authenticate(email, password)
+    user = find_by(email: email)
+    return nil unless user.present?
+
+    hashed_password = User.hash_to_string(
+      OpenSSL::PKCS5.pbkdf2_hmac(
+        password, user.password_salt, ITERATIONS, DIGEST.length, DIGEST
+      )
+    )
+    return nil unless user.password_hash == hashed_password
+
+    user
+  end
+
+  private
 
   def encrypt_password
     return unless password.present?
@@ -35,19 +49,5 @@ class User < ApplicationRecord
   # Служебный метод, преобразующий бинарную строку в шестнадцатиричный формат, для удобства хранения.
   def self.hash_to_string(password_hash)
     password_hash.unpack1('H*')
-  end
-
-  def self.authenticate(email, password)
-    user = find_by(email: email)
-    return nil unless user.present?
-
-    hashed_password = User.hash_to_string(
-      OpenSSL::PKCS5.pbkdf2_hmac(
-        password, user.password_salt, ITERATIONS, DIGEST.length, DIGEST
-      )
-    )
-    return nil unless user.password_hash == hashed_password
-
-    user
   end
 end
