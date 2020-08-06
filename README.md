@@ -5,4 +5,4 @@
 
 
 
-&copy; 2020 [Robert Bikmansurov](mailto://robb@mail.ru)
+&copy; 2020 [Robert Bikmansurov](https://robbikmansurov.github.io/cv/)
