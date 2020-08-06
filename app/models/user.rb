@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
+  before_validation :downcase_username
+  after_validation :normalize_name
   before_save :encrypt_password
 
   has_many :questions
@@ -47,5 +49,14 @@ class User < ApplicationRecord
   # Служебный метод, преобразующий бинарную строку в шестнадцатиричный формат, для удобства хранения.
   def self.hash_to_string(password_hash)
     password_hash.unpack1('H*')
+  end
+
+  private
+  def downcase_username
+    self.username = username.downcase
+  end
+
+  def normalize_name
+    self.name = name.downcase.titleize
   end
 end
