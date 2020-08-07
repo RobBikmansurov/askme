@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :questions
 
   before_validation :downcase_username
+  before_validation :downcase_email
   after_validation :normalize_name
   before_save :encrypt_password
 
@@ -21,7 +22,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true
 
   def self.authenticate(email, password)
-    user = find_by(email: email)
+    user = find_by(email: email&.downcase)
     return nil unless user.present?
 
     hashed_password = User.hash_to_string(
@@ -54,6 +55,10 @@ class User < ApplicationRecord
 
   def downcase_username
     self.username = username&.downcase
+  end
+
+  def downcase_email
+    self.email = email&.downcase
   end
 
   def normalize_name
