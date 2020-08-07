@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
+  has_many :questions
+
   before_validation :downcase_username
   after_validation :normalize_name
   before_save :encrypt_password
-
-  has_many :questions
 
   validates :name, :username, presence: true
   validates :email, :username, uniqueness: true
@@ -34,6 +34,11 @@ class User < ApplicationRecord
     user
   end
 
+  # Служебный метод, преобразующий бинарную строку в шестнадцатиричный формат, для удобства хранения.
+  def self.hash_to_string(password_hash)
+    password_hash.unpack1('H*')
+  end
+
   def encrypt_password
     return unless password.present?
 
@@ -43,17 +48,12 @@ class User < ApplicationRecord
         password, password_salt, ITERATIONS, DIGEST.length, DIGEST
       )
     )
-    # Оба поля попадут в базу при сохранении (save).
-  end
-
-  # Служебный метод, преобразующий бинарную строку в шестнадцатиричный формат, для удобства хранения.
-  def self.hash_to_string(password_hash)
-    password_hash.unpack1('H*')
   end
 
   private
+
   def downcase_username
-    self.username = username.downcase
+    self.username = username&.downcase
   end
 
   def normalize_name
