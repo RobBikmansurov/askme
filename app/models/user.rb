@@ -13,7 +13,7 @@ class User < ApplicationRecord
   before_save :encrypt_password
 
   validates :name, presence: true
-  validates :email, :username, uniqueness: true
+  # validates :email, :username, uniqueness: true # move to DB level
   validates :email, format: { with: /\A[\w\d._-]+@[\d\w.]+\.\w+\z/ }
   validates :username, format: { with: /\A[A-Za-z0-9_]+\z/ }
   validates :username, length: { maximum: 40 }
@@ -24,7 +24,7 @@ class User < ApplicationRecord
     user = find_by(email: email&.downcase)
     return unless user.present?
 
-    hashed_password = hash_to_string(
+    hashed_password = User.hash_to_string(
       OpenSSL::PKCS5.pbkdf2_hmac(
         password, user.password_salt, ITERATIONS, DIGEST.length, DIGEST
       )
@@ -38,8 +38,6 @@ class User < ApplicationRecord
   def self.hash_to_string(password_hash)
     password_hash.unpack1('H*')
   end
-
-  private_class_method :hash_to_string
 
   private
 
