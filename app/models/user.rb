@@ -24,7 +24,7 @@ class User < ApplicationRecord
     user = find_by(email: email&.downcase)
     return unless user.present?
 
-    hashed_password = User.hash_to_string(
+    hashed_password = hash_to_string(
       OpenSSL::PKCS5.pbkdf2_hmac(
         password, user.password_salt, ITERATIONS, DIGEST.length, DIGEST
       )
@@ -34,12 +34,14 @@ class User < ApplicationRecord
     user
   end
 
-  private
-
   # Служебный метод, преобразует бинарную строку в шестнадцатиричный формат для удобства хранения.
   def self.hash_to_string(password_hash)
     password_hash.unpack1('H*')
   end
+
+  private_class_method :hash_to_string
+
+  private
 
   def encrypt_password
     return unless password.present?
@@ -53,8 +55,8 @@ class User < ApplicationRecord
   end
 
   def downcase_params
-    self.username = username.downcase!
-    self.email = email.downcase!
+    self.username = username&.downcase!
+    self.email = email&.downcase!
   end
 
   def normalize_name
