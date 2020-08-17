@@ -11,8 +11,9 @@ lana:
   <<: *DEFAULTS
   avatar_url: https://www.railsspeed.com/assets/img/pokemon-30caa436a6f070efb1445f52a4fd81730a0320576fea6a74611186d59316443a.gif
 
-oleg:
+vadim:
   <<: *DEFAULTS
+  avatar_url: https://secure.gravatar.com/avatar/71269686e0f757ddb4f73614f43ae445?s=100
 
 maxim:
   <<: *DEFAULTS

@@ -1,3 +1,7 @@
-<p>
-<%= @hello %> Сейчас <%= @time.strftime('%H:%M:%S') %>
-</p>
+<h1><%= @user.name %></h1>
+
+<div>
+  <img src="<%= @user.avatar_url %>" alt="[фото]">
+</div>
+
+<h2>@<%= @user.username %></h2>

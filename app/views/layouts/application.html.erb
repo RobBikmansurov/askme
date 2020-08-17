@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Askme</title>
+    <meta charset="UTF-8"/>
+    <title>Askme Хорошие вопросы</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="header-logo">
+        <h1 class="header-title">Хорошие вопросы</h1>
+      </div>
+    </div>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
