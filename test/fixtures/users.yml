@@ -1,0 +1,18 @@
+DEFAULTS: &DEFAULTS
+  name: $LABEL
+  username: $LABEL
+  email: $LABEL@apple.com
+
+mike:
+  <<: *DEFAULTS
+  avatar_url: https://www.railsspeed.com/assets/img/nate-bd1f0d561d35c6258be7b4834a66d5173a15db826127610fac62a1c8b3c0d129.jpg
+
+lana:
+  <<: *DEFAULTS
+  avatar_url: https://www.railsspeed.com/assets/img/pokemon-30caa436a6f070efb1445f52a4fd81730a0320576fea6a74611186d59316443a.gif
+
+oleg:
+  <<: *DEFAULTS
+
+maxim:
+  <<: *DEFAULTS
