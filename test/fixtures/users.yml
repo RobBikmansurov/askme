@@ -3,7 +3,7 @@ DEFAULTS: &DEFAULTS
   username: $LABEL
   email: $LABEL@apple.com
 
-mike:
+nate:
   <<: *DEFAULTS
   avatar_url: https://www.railsspeed.com/assets/img/nate-bd1f0d561d35c6258be7b4834a66d5173a15db826127610fac62a1c8b3c0d129.jpg
 
@@ -17,3 +17,7 @@ vadim:
 
 maxim:
   <<: *DEFAULTS
+
+ivan:
+  <<: *DEFAULTS
+  avatar_url: https://avatars3.githubusercontent.com/u/9665?s=400&u=c11df32680c0acf4ff3729e4cbc589df486a652b&v=4
