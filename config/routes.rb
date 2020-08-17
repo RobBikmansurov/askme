@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :users, only: :show
+  resources :users, except: %i[create delete]
+  resources :questions, only: %i[new create]
 
-  root to: 'users#show'
+
+  root to: 'users#index'
 end
