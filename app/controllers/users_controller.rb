@@ -6,6 +6,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @questions = @user.questions
-    @new_question = @questions.new()
+    @new_question = @questions.new
   end
 end
