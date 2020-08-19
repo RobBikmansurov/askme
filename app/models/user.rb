@@ -23,6 +23,7 @@ class User < ApplicationRecord
   def self.authenticate(email, password)
     user = find_by(email: email&.downcase)
     return unless user.present?
+    return unless user.password_salt.present?
 
     hashed_password = User.hash_to_string(
       OpenSSL::PKCS5.pbkdf2_hmac(
@@ -58,6 +59,6 @@ class User < ApplicationRecord
   end
 
   def normalize_name
-    self.name = name.downcase.titleize
+    self.name = name.mb_chars.titleize
   end
 end

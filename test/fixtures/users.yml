@@ -23,6 +23,7 @@ ivan:
   <<: *DEFAULTS
   name: Ivan Nemytchenko
   avatar_url: https://avatars3.githubusercontent.com/u/9665?s=400&u=c11df32680c0acf4ff3729e4cbc589df486a652b&v=4
+
 matz:
   <<: *DEFAULTS
   name: Yukihiro Matsumoto

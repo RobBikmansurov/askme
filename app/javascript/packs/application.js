@@ -26,3 +26,13 @@
 //        return false;
 //    });
 //});
+
+window.onload = function() {
+    console.log('Page loaded');
+
+    let askButton = document.getElementById('ask-button');
+    askButton.addEventListener('click', () => {
+        console.log('click');
+        document.getElementById('ask-form').style.display = 'block';
+    }, false);
+};
