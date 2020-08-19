@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
     else
       render action: 'new'
     end
-
   end
 
   private
