@@ -1,0 +1,11 @@
+question1:
+  text: Что делать с Makefile?
+  user: ivan
+
+question2:
+  text: Кто такой хороший программист?
+  user: vadim
+
+question3:
+  text: Ruby is died?
+  user: matz
