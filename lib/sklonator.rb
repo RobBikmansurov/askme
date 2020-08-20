@@ -1,5 +1,5 @@
 # нужный падеж исчислимого
-class Sklonator
+module Sklonator
   def self.num_to_str(num, word1, word4, words, with_num = false)
     prefix = "#{num} " if with_num
     return "#{prefix}#{words}" if (num / 10 % 10) == 1 # (10-19)
