@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @questions = @user.questions
-    @new_question = @questions.build
+    @new_question = Question.new(user_id: @user.id)
   end
 
   private
