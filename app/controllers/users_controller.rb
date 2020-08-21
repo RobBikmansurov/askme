@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: %i[show destroy]
+  before_action :load_user, only: %i[show edit update destroy]
   before_action :authorize_user, except: %i[index new create show]
 
   def index
@@ -20,6 +20,16 @@ class UsersController < ApplicationController
       redirect_to root_url, notice: 'Пользователь успешно зарегистрирован!'
     else
       render 'new'
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'Данные обновлены'
+    else
+      render :edit
     end
   end
 
