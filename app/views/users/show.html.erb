@@ -1,6 +1,7 @@
 <div class="user-header text-center">
   <h1 class="title-medium">
     <%= @user.name %>
+    <%= link_to fa_icon('edit'), edit_user_path(@user), title: 'Редактировать профиль' if current_user == @user %>
   </h1>
 
   <div class="user-image-div">
@@ -10,10 +11,11 @@
   <h2 class="title-small buffer-both">
     @<%= @user.username %>
   </h2>
-    <%= link_to fa_icon('edit'), edit_user_path(@user) if current_user == @user %>
 
   <div class="user-statistics text-center">
-    <%= questions_count(@questions) %>
+    <%= questions_count(@questions, 'Нет вопросов', 'Всего') %>
+    <%= questions_count(@questions.answered, '', ': ответил на') %>
+    <%= questions_count(@questions.not_answered, '', ', нет ответа на') %>
   </div>
 </div>
 

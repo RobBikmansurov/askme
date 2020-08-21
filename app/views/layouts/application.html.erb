@@ -20,22 +20,25 @@
       <%= link_to "@#{current_user.username}", user_path(current_user) %> |
       <%= link_to 'Выйти', log_out_path %>
     <% else %>
-      <%= link_to 'Зарегистрироваться', sign_up_path,
-                  class: 'button button-light button-small' %>
-      <%= link_to 'Войти', log_in_path,
-                  class: 'button button-light button-small' %>
+      <%= link_to 'Зарегистрироваться', sign_up_path, class: 'button button-light button-small' %>
+      <%= link_to 'Войти', log_in_path, class: 'button button-light button-small' %>
     <% end %>
   </div>
 </div>
 
-<% flash.each do |type, msg| %>
-  <div class="flash-<%= type %>">
-    <%= msg %>
-  </div>
-<% end %>
 
 <div class="content">
-  <%= yield %>
+  <div class="container">
+    <% if flash.any? %>
+      <div class="content-wrapper buffer-both">
+        <% flash.each do |type, message| %>
+          <%= content_tag :div, message, class: "flash-#{type}" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
 </div>
 
 </body>
