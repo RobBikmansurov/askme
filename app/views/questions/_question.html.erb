@@ -1,6 +1,3 @@
-<% questions ||= nil %>
-<% action_icon = question.answer.blank? ? 'reply' : 'pencil' %>
-
 <div class="question">
   <div class="question-content">
     <div class="question-text text-lead">
@@ -20,7 +17,8 @@
 
   <% if question.user == current_user %>
     <div class="question-actions">
-      <%= link_to fa_icon('edit'), edit_question_path(question) %>
+      <% edit_icon = question.answer.blank? ? 'reply' : 'pencil' %>
+      <%= link_to fa_icon(edit_icon), edit_question_path(question) %>
       <%= link_to fa_icon('trash-o'), question, method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
       <%= link_to 'del', question, method: :delete %>
     </div>
