@@ -3,11 +3,9 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.authenticate(params[:email], params[:password])
-    p @user
-
     if @user.present?
       session[:user_id] = @user.id
-      redirect_to root_url, notice: 'вы успешно залогинились'
+      redirect_to root_url, notice: 'Вы успешно залогинились'
     else
       flash.now.alert = 'Неправильный email или пароль'
       render :new
