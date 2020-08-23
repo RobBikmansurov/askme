@@ -20,7 +20,6 @@
       <% edit_icon = question.answer.blank? ? 'reply' : 'pencil' %>
       <%= link_to fa_icon(edit_icon), edit_question_path(question) %>
       <%= link_to fa_icon('trash-o'), question, method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
-      <%= link_to 'del', question, method: :delete %>
     </div>
   <% end %>
 </div>

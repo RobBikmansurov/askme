@@ -15,7 +15,8 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-//= require_tree .
+// yarn add @rails/ujs
+require("@rails/ujs").start()
 
 // Этот код добавляет обработчик события выдвигания формы при клике на кнопку
 // «Задать вопрос», которая видна только, когда страница открыта в маленьком

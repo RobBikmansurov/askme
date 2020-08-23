@@ -33,6 +33,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    p @user
+  end
+
   def show
     @questions = @user.questions.order(created_at: :desc)
     @new_question = Question.new(user_id: @user.id)
@@ -42,7 +46,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-                                 :name, :username, :avatar_url)
+                                 :name, :username, :avatar_url, :color)
   end
 
   def authorize_user
