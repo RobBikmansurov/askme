@@ -1,0 +1,11 @@
+<% errors = model.errors %>
+
+<% if errors.any? %>
+  <div class="form-errors">
+    <ul>
+      <% for message in errors.full_messages %>
+        <li class="form-error-message"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

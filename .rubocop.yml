@@ -1,7 +1,7 @@
+# require: rubocop-rails
+
 AllCops:
   Exclude:
-    - test-self.rb
-    - test-class.rb
     - bin/*
     - db/schema.rb
     - tmp/**/*
