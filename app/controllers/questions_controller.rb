@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @user = User.find(@question.user_id)
+    @question.author_id = current_user.id if current_user.present?
     if @question.save
       redirect_to @user, notice: 'Задан новый вопрос'
     else

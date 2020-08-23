@@ -1,10 +1,12 @@
 question1:
   text: Что делать с Makefile?
   user: ivan
+  author: vadim
 
 question2:
   text: Кто такой хороший программист?
   user: vadim
+  author: ivan
 
 question3:
   text: Is Ruby died?

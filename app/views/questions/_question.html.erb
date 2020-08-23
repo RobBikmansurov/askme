@@ -10,8 +10,14 @@
       </div>
     <% end %>
 
-    <div class="question-date">
-      <%= l(question.created_at, format: :short) %>
+    <div class="question__attributes">
+      <div class="question-date">
+        <%= l(question.created_at, format: :short) %>
+      </div>
+
+      <div class="question-author">
+        <%= question_author(question.author) %>
+      </div>
     </div>
   </div>
 

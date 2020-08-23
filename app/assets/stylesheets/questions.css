@@ -42,3 +42,8 @@
 .question-actions a {
   margin-left: 10px;
 }
+
+.question__attributes {
+  display: flex;
+  justify-content: space-between;
+}
