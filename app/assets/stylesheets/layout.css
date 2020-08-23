@@ -40,9 +40,9 @@ a {
 
 .flash-alert {
   font-size: 20px;
-  color: #dc554f;
+  color: firebrick;
 }
 .flash-notice {
   font-size: 20px;
-  color: lawngreen;
+  color: seagreen;
 }

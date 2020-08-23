@@ -34,7 +34,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    p @user
+    @user.destroy
+    redirect_to root_path, notice: 'Профиль удален, приходите к нам еще.'
   end
 
   def show
