@@ -34,7 +34,7 @@ module Askme
 
     config.time_zone = 'Ekaterinburg' # UTC+5
 
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ru
     config.i18n.locale = :ru
 
     config.i18n.fallbacks = [:en]
