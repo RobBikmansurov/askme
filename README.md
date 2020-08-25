@@ -1,6 +1,9 @@
+
 # Ask.fm clone - training project
 
 ## Getting started
+
+Try the app on [Heroku](https://askme-robb.herokuapp.com/)
 
 ### Install
 
@@ -12,7 +15,7 @@ Development environment requirements :
 $ git clone git@github.com:RobBikmansurov/askme.git
 $ cd askme
 $ rails db:setup
-$ rails db:fixtures:load
+$ rails db:seed
 ```
 
 Now you can access the application with your browser on: http://localhost:3000
