@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :username, length: { maximum: 40 }
   validates :password, :password_confirmation, presence: true, on: :create
   validates :password, confirmation: true
+  validates :color, format: { with: /\A#?(?:[A-F0-9]{3}){1,2}\z/i }
 
   def self.authenticate(email, password)
     user = find_by(email: email&.downcase)
