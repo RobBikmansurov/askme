@@ -3,29 +3,29 @@
     <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
     <div class="form-field">
-      <%= label_tag :email, 'Email (login)', class: 'form-label' %>
-      <%= f.text_field :email, class: 'form-text-field' %>
+      <%= f.label 'Email (login)' %>
+      <%= f.text_field :email %>
     </div>
 
     <div class="form-field">
-      <%= f.label :username, 'Никнейм', class: 'form-label' %>
-      <%= f.text_field :username, class: 'form-text-field' %>
+      <%= f.label 'Никнейм' %>
+      <%= f.text_field :username %>
     </div>
 
     <div class="form-field">
-      <%= f.label 'Ваше имя', class: 'form-label' %>
-      <%= f.text_field :name, class: 'form-text-field' %>
+      <%= f.label 'Ваше имя' %>
+      <%= f.text_field :name %>
     </div>
 
-    <% unless registration %>
+    <% if f.object.persisted? %>
       <div class="form-field">
-        <%= f.label 'URL вашей аватарки', class: 'form-label' %>
-        <%= f.text_field :avatar_url, class: 'form-text-field' %>
+        <%= f.label 'URL вашей аватарки' %>
+        <%= f.text_field :avatar_url %>
       </div>
 
       <div class="form-field">
-        <%= f.label 'Выберите цвет профиля: ', class: 'form-label' %>
-        <%= f.color_field :color, class: 'form-text-field', type: 'color' %>
+        <%= f.label 'Выберите цвет профиля: ' %>
+        <%= f.color_field :color %>
       </div>
 
       <div class="buffer-top-large buffer-bottom">
@@ -34,16 +34,18 @@
     <% end %>
 
     <div class="form-field">
-      <%= f.label :password, class: 'form-label' %>
-      <%= f.password_field :password, class: 'form-text-field' %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
     </div>
 
     <div class="form-field">
-      <%= f.label :password_confirmation, class: 'form-label' %>
-      <%= f.password_field :password_confirmation, class: 'form-text-field' %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
     </div>
 
     <div class="form-action buffer-top">
+      <% submit_text = 'Сохранить профиль' if f.object.persisted? %>
+      <% submit_text = 'Зарегистрировать' if f.object.new_record? %>
       <%= f.submit "#{submit_text}", class: 'button button-dark button-small' %>
     </div>
   <% end %>

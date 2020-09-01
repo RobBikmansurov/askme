@@ -9,7 +9,7 @@ module QuestionsHelper
   end
 
   def question_author(author)
-    return "Автор вопроса: аноним" if author.blank?
+    return 'Автор вопроса: аноним' if author.blank?
 
     "Автор вопроса: <a href = '#{user_path(author)}' > #{author.name}</a>".html_safe
   end
