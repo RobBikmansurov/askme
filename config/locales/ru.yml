@@ -1,2 +1,19 @@
 ru:
   hello: "Привет мир"
+  activerecord:
+    models:
+      user: Пользователь
+      questios: Вопрос
+      users: Пользователи
+      questions: Вопросы
+
+    attributes:
+      user:
+        email: Emai
+        username: Никнейм
+        name: 'Ваше имя'
+        avatar_url: 'URL вашей аватарки'
+        color: 'Цвет профиля'
+      question:
+        text: 'Текст вопроса'
+        answer: Ответ

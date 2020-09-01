@@ -3,28 +3,28 @@
     <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
     <div class="form-field">
-      <%= f.label 'Email (login)' %>
+      <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
 
     <div class="form-field">
-      <%= f.label 'Никнейм' %>
+      <%= f.label :username %>
       <%= f.text_field :username %>
     </div>
 
     <div class="form-field">
-      <%= f.label 'Ваше имя' %>
+      <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
 
     <% if f.object.persisted? %>
       <div class="form-field">
-        <%= f.label 'URL вашей аватарки' %>
+        <%= f.label :avatar_url %>
         <%= f.text_field :avatar_url %>
       </div>
 
       <div class="form-field">
-        <%= f.label 'Выберите цвет профиля: ' %>
+        <%= f.label :color %>
         <%= f.color_field :color %>
       </div>
 
