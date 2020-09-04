@@ -9,11 +9,16 @@ ru:
 
     attributes:
       user:
-        email: Emai
+        email: Email
         username: Никнейм
         name: 'Ваше имя'
         avatar_url: 'URL вашей аватарки'
         color: 'Цвет профиля'
+        password: Пароль
+        password_confirmation: 'Подтверждение пароля'
       question:
         text: 'Текст вопроса'
         answer: Ответ
+      session:
+        password: Пароль
+        password_confirmation: 'Подтверждение пароля'

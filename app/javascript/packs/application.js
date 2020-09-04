@@ -27,13 +27,10 @@ require("@rails/ujs").start()
 //        return false;
 //    });
 //});
-
-window.onload = function() {
-    console.log('Page loaded');
-
+document.addEventListener('DOMContentLoaded', function(){
     let askButton = document.getElementById('ask-button');
-    askButton.addEventListener('click', () => {
-        console.log('click');
+    askButton.addEventListener('click', (event) => {
         document.getElementById('ask-form').style.display = 'block';
+        event.preventDefault(); // остановить дальнейшую обраотку события
     }, false);
-};
+})

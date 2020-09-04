@@ -21,7 +21,7 @@
  *= require text
  *= require grid
  *= require button
- *= require form
+ *  = require form
  *
  * Подключаем стили, специфичные для конкретных view-файлов
  *= require layout
