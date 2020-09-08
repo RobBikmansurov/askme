@@ -1,5 +1,5 @@
 <div class="container content-wrapper buffer-both">
   <h1 class="title-medium">Присоединяйся к нам!</h1>
   <% provide :user_form_submit, t('labels.users.create') %>
-  <%= render partial: 'form' %>
+  <%= render partial: 'form', locals: { user: @user } %>
 </div>

@@ -4,10 +4,9 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @user = User.find(@question.user_id)
     @question.author = current_user
     if @question.save
-      redirect_to @user, notice: 'Задан новый вопрос'
+      redirect_to @question.user, notice: 'Задан новый вопрос'
     else
       render :edit
     end
