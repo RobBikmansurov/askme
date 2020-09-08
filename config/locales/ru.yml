@@ -22,3 +22,7 @@ ru:
       session:
         password: Пароль
         password_confirmation: 'Подтверждение пароля'
+  labels:
+    users:
+      update: Сохранить профиль
+      create: Зарегистрировать

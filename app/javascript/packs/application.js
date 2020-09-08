@@ -27,10 +27,31 @@ require("@rails/ujs").start()
 //        return false;
 //    });
 //});
-document.addEventListener('DOMContentLoaded', function(){
+
+var formBGColor = 0;
+window.addEventListener("load", colorizer, false);
+
+function colorizer() {
+    colorBg = document.getElementById("user_color");
+    if (colorBg) {
+        colorBg.addEventListener("input", updateColorBg, false);
+        element = document.getElementById("profile")
+        element.style.backgroundColor = colorBg.value;
+        element.style.color = "#FFFFFF";
+        colorBg.select()
+    }
+}
+
+function updateColorBg(event) {
+    document.getElementById("profile").style.backgroundColor = event.target.value;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     let askButton = document.getElementById('ask-button');
-    askButton.addEventListener('click', (event) => {
-        document.getElementById('ask-form').style.display = 'block';
-        event.preventDefault(); // остановить дальнейшую обраотку события
-    }, false);
+    if (askButton) {
+        askButton.addEventListener('click', (event) => {
+            document.getElementById('ask-form').style.display = 'block';
+            event.preventDefault(); // остановить дальнейшую обработку события
+        }, false)
+    }
 })

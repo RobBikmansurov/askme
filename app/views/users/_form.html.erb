@@ -2,37 +2,35 @@
   <%= form_for(@user) do |f| %>
     <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
 
-      <%= f.label :username %>
-      <%= f.text_field :username %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
     <% if f.object.persisted? %>
-        <%= f.label :avatar_url %>
-        <%= f.text_field :avatar_url %>
+      <%= f.label :avatar_url %>
+      <%= f.text_field :avatar_url %>
 
-        <%= f.label :color %>
-        <%= f.color_field :color %>
+      <%= f.label :color %>
+      <%= f.color_field :color %>
 
       <div class="buffer-top">
         Если не хотите менять пароль — оставьте поля ниже пустыми!
       </div>
     <% end %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: 'off' %>
 
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: 'off' %>
 
     <div class="form-action buffer-top">
-      <% submit_text = 'Сохранить профиль' if f.object.persisted? %>
-      <% submit_text = 'Зарегистрировать' if f.object.new_record? %>
-      <%= f.submit "#{submit_text}", class: 'button button-dark button-small' %>
+      <%= f.submit yield(:user_form_submit), class: 'button button-dark button-small' %>
     </div>
   <% end %>
 </div>

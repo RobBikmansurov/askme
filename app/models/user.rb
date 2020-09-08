@@ -3,6 +3,8 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest.new('SHA256')
+  REGEXP_EMAIL = /\A[\w\d._-]+@[\d\w.]+\.\w+\z/
+  REGEXP_USERNAME = /\A[A-Za-z0-9_]+\z/
 
   attr_accessor :password
 
@@ -14,8 +16,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, :username, uniqueness: true # also is on the DB level
-  validates :email, format: { with: /\A[\w\d._-]+@[\d\w.]+\.\w+\z/ }
-  validates :username, format: { with: /\A[A-Za-z0-9_]+\z/ }
+  validates :email, format: { with: REGEXP_EMAIL }
+  validates :username, format: { with: REGEXP_USERNAME }
   validates :username, length: { maximum: 40 }
   validates :password, :password_confirmation, presence: true, on: :create
   validates :password, confirmation: true

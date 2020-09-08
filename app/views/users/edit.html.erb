@@ -1,4 +1,5 @@
 <div class="container content-wrapper buffer-both">
-  <h1 class="title-medium">Править профиль</h1>
+  <h1 class="title-medium" id="profile">&nbsp;Править профиль</h1>
+  <% provide :user_form_submit, t('labels.users.update') %>
   <%= render partial: 'form' %>
 </div>

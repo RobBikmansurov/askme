@@ -79,7 +79,7 @@ label:after {
 
 input[type=text], input[type=password] {
   width: 100%;
-  padding: 0.5em;
+  padding: 0.5em 0;
   display: inline-block;
     margin-bottom: 10px;
 
