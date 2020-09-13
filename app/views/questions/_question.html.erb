@@ -14,7 +14,9 @@
       <div class="question-date">
         <%= l(question.created_at, format: :short) %>
       </div>
-
+      <div class="question-tags">
+        <%= question.tags.map { |t| link_to t.name, tag_path(t) }.join(', ').html_safe %>
+      </div>
       <div class="question-author">
         <%= question_author(question.author) %>
       </div>
