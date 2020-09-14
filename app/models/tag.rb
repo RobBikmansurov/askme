@@ -8,6 +8,10 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true
 
+  def label
+    "##{name}"
+  end
+
   def to_param
     name
   end

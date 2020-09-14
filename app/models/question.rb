@@ -17,7 +17,7 @@ class Question < ApplicationRecord
   def update_tags
     tag_questions.clear
     "#{text} #{answer}".downcase.scan(Tag::TAG_REGEXP).uniq.each do |tag|
-      tags << Tag.find_or_create_by(name: tag)
+      tags << Tag.find_or_create_by(name: tag[1..])
     end
 
   end

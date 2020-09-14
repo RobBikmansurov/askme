@@ -26,3 +26,4 @@ ru:
     users:
       update: Сохранить профиль
       create: Зарегистрировать
+  questions_for_tag: Вопросы с тегом
