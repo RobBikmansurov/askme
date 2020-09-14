@@ -26,16 +26,12 @@ ActiveRecord::Schema.define(version: 2020_09_13_152429) do
   create_table "tag_questions", force: :cascade do |t|
     t.integer "tag_id", null: false
     t.integer "question_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_tag_questions_on_question_id"
     t.index ["tag_id"], name: "index_tag_questions_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

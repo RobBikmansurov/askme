@@ -1,5 +1,7 @@
 class Tag < ApplicationRecord
   TAG_REGEXP = /#[\wа-яё]+/.freeze
+  FONT_SIZE_MIN = 10 # cloud tags font-size
+  FONT_SIZE_MAX = 30
 
   before_validation { name&.downcase! }
 
@@ -7,6 +9,8 @@ class Tag < ApplicationRecord
   has_many :questions, through: :tag_question
 
   validates :name, presence: true
+
+  scope :with_questions, -> { includes(:questions).distinct }
 
   def label
     "##{name}"

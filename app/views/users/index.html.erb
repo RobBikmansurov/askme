@@ -1,10 +1,8 @@
-<%# Этот шаблон отрисуется, когда пользователь захочет посмотреть список пользователей %>
 <div class="content-wrapper buffer-both text-center">
   <div class="buffer-both">
     <h1 class="title-medium">Наши пользователи</h1>
   </div>
 
-  <%# Этот код выводит каждого пользователя в цикле %>
   <% @users.each do |user| %>
     <div class="users-list-item">
       <div class="user-image-div user-image-div-small">
@@ -13,4 +11,12 @@
       <%= link_to "@#{user.username}", user_path(user) %>
     </div>
   <% end %>
+
+  <div class="buffer-top">
+     <% @tags.each do |tag| %>
+      <% font_size = tag_cloud_font_size(@tags, tag) %>
+      <%= link_to "##{tag[0]}", tag_path(tag[0]), { style: "font-size: #{font_size}px;" } %>
+    <% end %>
+  </div>
+
 </div>
