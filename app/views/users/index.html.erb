@@ -13,10 +13,9 @@
   <% end %>
 
   <div class="buffer-top">
-     <% @tags.each do |tag| %>
-      <% font_size = tag_cloud_font_size(@tags, tag) %>
+     <% @tags_with_counts.each do |tag| %>
+      <% font_size = tag_cloud_font_size(@tags_with_counts, tag) %>
       <%= link_to "##{tag[0]}", tag_path(tag[0]), { style: "font-size: #{font_size}px;" } %>
     <% end %>
   </div>
-
 </div>

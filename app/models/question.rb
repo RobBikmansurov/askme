@@ -19,7 +19,5 @@ class Question < ApplicationRecord
     "#{text} #{answer}".downcase.scan(Tag::TAG_REGEXP).uniq.each do |tag|
       tags << Tag.find_or_create_by(name: tag[1..])
     end
-
   end
-
 end

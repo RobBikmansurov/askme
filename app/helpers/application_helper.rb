@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_avatar(user)
-    user.avatar_url.presence || asset_pack_path('media/images/user2.jpg')
+    user.avatar_url.presence || asset_pack_path('media/images/user.jpg')
   end
 
   def fa_icon(icon_class)

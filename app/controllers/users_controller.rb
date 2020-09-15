@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @tags = TagQuestion.with_counts
+    @tags_with_counts = TagQuestion.with_counts
   end
 
   def new

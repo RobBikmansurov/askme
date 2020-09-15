@@ -30,7 +30,13 @@
     <%= f.password_field :password_confirmation, autocomplete: 'off' %>
 
     <div class="form-action buffer-top">
+
       <%= f.submit yield(:user_form_submit), class: 'button button-dark button-small' %>
+      <span>
+        или
+      <%= link_to 'удалить профиль навсегда', @user, method: :delete,
+                  data: {confirm: 'Вы действительно хотите удалить свой профиль?'} %>
+    </span>
     </div>
   <% end %>
 </div>

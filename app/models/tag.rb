@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
-  TAG_REGEXP = /#[\wа-яё]+/.freeze
+  # TAG_REGEXP = /#[\wа-яё]+/.freeze
+  TAG_REGEXP = /#[[:alpha:]]+/.freeze
   FONT_SIZE_MIN = 10 # cloud tags font-size
   FONT_SIZE_MAX = 30
 
