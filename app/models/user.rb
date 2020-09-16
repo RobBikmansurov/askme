@@ -3,8 +3,8 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest.new('SHA256')
-  REGEXP_EMAIL = /\A[\w\d._-]+@[\d\w.]+\.\w+\z/
-  REGEXP_USERNAME = /\A[A-Za-z0-9_]+\z/
+  REGEXP_EMAIL = /\A[\w\d._-]+@[\d\w.]+\.\w+\z/.freeze
+  REGEXP_USERNAME = /\A[A-Za-z0-9_]+\z/.freeze
 
   attr_accessor :password
 

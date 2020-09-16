@@ -35,6 +35,8 @@
           <%= f.text_area :text, class: 'form-textarea', id: "test" %>
         </div>
 
+        <%= recaptcha_tags size: 'compact' unless current_user.present? %>
+
         <div class="form-action", id: "ask-button2">
           <%= submit_tag 'Задать вопрос', class: 'button button-small button-dark' %>
         </div>

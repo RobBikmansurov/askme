@@ -13,6 +13,7 @@ gem 'webpacker', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'russian', '~> 0.6.0'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
