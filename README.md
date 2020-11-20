@@ -21,4 +21,4 @@ $ rails db:seed
 Now you can access the application with your browser on: http://localhost:3000
 
 
-&copy; 2020 [Robert Bikmansurov](https://robbikmansurov.github.io/cv/)
+&copy; 2020 [Robert Bikmansurov](https://bikmansurov.ru)

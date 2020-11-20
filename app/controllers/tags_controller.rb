@@ -3,6 +3,7 @@ class TagsController < ApplicationController
 
   def show
     @questions = @tag.questions
+    redirect_to root_path, alert: "Нет вопросов с тегом #{params[:name]}!" if @questions.blank?
   end
 
   private
